@@ -1,0 +1,11 @@
+Initiating data fetch...
+
+[Analyzed 20 players after filters applied]
+
+--- TOP SCORERS ---
+      Username  Matches  Goals  Rating
+-MB-Trkstyle68       30     29    7.25
+         06ABK       30     23    7.21
+     24Peace24       79      9    7.48
+     35-Shinra       77      5    7.16
+        0923op       31      5    7.49

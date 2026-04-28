@@ -1,0 +1,1319 @@
+<!doctype html>
+
+
+
+
+
+<html lang="tr" class="light-style layout-menu-fixed layout-compact" dir="ltr" data-theme="theme-default">
+<head>
+    
+    <title>eMajor League Player Statistics</title>
+    <link rel="shortcut icon" href="/static/assets/images/Frame-7.png" type="image/x-icon">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
+    <meta name="yandex-verification" content="48321b97f0d19af4"/>
+
+    <meta name="description" content=""/>
+
+    <!-- Bootstrap CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+          rel="stylesheet"/>
+    <link rel="stylesheet" href="/static/v2/assets/vendor/fonts/boxicons.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.min.css"
+          rel="stylesheet"/>
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="/static/v2/assets/vendor/css/core.css"/>
+    <link rel="stylesheet"
+          href="/static/v2/assets/vendor/css/theme-default.css"/>
+    <link rel="stylesheet" href="/static/v2/assets/css/demo.css"/>
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="/static/v2/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css"/>
+    <link rel="stylesheet" href="/static/v2/assets/vendor/libs/apex-charts/apex-charts.css"/>
+    <link rel="stylesheet" href="/static/v2/assets/vendor/libs/swiper/swiper.css">
+
+    <!-- Cropper CSS -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.4/cropper.min.css'>
+
+    <script src="/static/v2/assets/vendor/js/helpers.js"></script>
+
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="/static/v2/assets/js/config.js"></script>
+
+    <style>
+        a {
+            color: #09F25E;
+        }
+
+        a:hover {
+            color: #07df56;
+        }
+
+        .a2 {
+            color: #697a8d;
+            text-decoration: none;
+        }
+
+        .a2:hover {
+            --bs-link-color-rgb: var(--bs-link-hover-color-rgb);
+        }
+
+        .a3 {
+            color: #f2f4f8;
+            text-decoration: none;
+        }
+
+        .a3:hover {
+            color: #f22800;
+        }
+
+        .rtitle {
+            background-image: linear-gradient(#09F25E, #09F25E);
+            background-position: 0% 100%;
+            background-repeat: no-repeat;
+            background-size: 0% 3px;
+            transition: background-size .3s;
+            display: initial !important
+        }
+
+        .rtitle:hover {
+            background-size: 100% 3px
+        }
+
+        .product-card {
+            position: relative;
+            border-radius: .375rem;
+            box-shadow: 0 2px 7px #dfdfdf;
+            background: #fafafa;
+        }
+
+        .badge2 {
+            position: absolute;
+            left: 0;
+            top: 20px;
+            text-transform: uppercase;
+            font-size: 13px;
+            font-weight: 700;
+            background: red;
+            color: #fff;
+            padding: 3px 10px;
+        }
+
+        .product-tumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 300px;
+            padding: 35px;
+            background: #f3f3f3;
+            border-top-left-radius: .375rem;
+            border-top-right-radius: .375rem;
+        }
+
+        .product-tumb img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .product-details {
+            padding: 30px;
+        }
+
+        .product-catagory {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #ccc;
+            margin-bottom: 18px;
+        }
+
+        .product-details h4 a {
+            font-weight: 500;
+            display: block;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+            color: #697a8d;
+            text-decoration: none;
+        }
+
+        .product-details h4 a:hover {
+            color: #09F25E;
+        }
+
+        .product-details p {
+            font-size: 15px;
+            line-height: 22px;
+            margin-bottom: 18px;
+            color: #999;
+        }
+
+        .product-bottom-details {
+            overflow: hidden;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        .product-bottom-details div {
+            float: left;
+            width: 50%;
+        }
+
+        .product-price {
+            font-size: 18px;
+            color: #09F25E;
+            font-weight: 600;
+        }
+
+        .product-price small {
+            font-size: 80%;
+            font-weight: 400;
+            text-decoration: line-through;
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        .product-links {
+            text-align: right;
+        }
+
+        .product-links a {
+            display: inline-block;
+            margin-left: 5px;
+            color: #697a8d;
+            font-size: 17px;
+        }
+
+        .product-links a:hover {
+            color: #09F25E;
+        }
+
+        .btn-dark {
+            color: #fff;
+            background-color: #161616;
+            border-color: #161616;
+            box-shadow: 0 0.125rem 0.25rem 0 #16161670;
+        }
+
+        .btn-dark:hover {
+            color: #fff !important;
+            background-color: #202f3f !important;
+            border-color: #202f3f !important;
+            transform: translateY(-1px) !important;
+        }
+    </style>
+
+    
+    <link rel="stylesheet" href="/static/v2/assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css">
+    <link rel="stylesheet" href="/static/v2/assets/css/jquery.dataTables.min.css">
+
+    <style>
+        a {
+            color: #697a8d;
+        }
+
+        a:hover {
+            color: #09F25E;
+        }
+
+        .verified {
+            color: #09F25E;
+        }
+    </style>
+
+
+</head>
+
+<body>
+<!-- Layout wrapper -->
+<div class="layout-wrapper layout-content-navbar">
+    <div class="layout-container">
+        <!-- Menu -->
+        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+            
+
+                <div class="app-brand demo">
+                    <a href="/" class="app-brand-link">
+                        <span class="app-brand-logo demo">
+                          <svg xmlns="http://www.w3.org/2000/svg" version="1.2" viewBox="0 0 753 693" width="753" height="693">
+                            <title>Yatay-ai</title>
+                            <defs>
+                              <linearGradient id="g1" x2="1" gradientUnits="userSpaceOnUse"
+                                              gradientTransform="matrix(773.787,0,0,773.917,-103.244,26.624)">
+                                <stop offset="0" stop-color="#09F25E"/>
+                                <stop offset="1" stop-color="#00782C"/>
+                              </linearGradient>
+                            </defs>
+                            <style>
+                              .s0 {
+                                  fill: url(#g1)
+                              }
+                            </style>
+                            <g id="Layer 1">
+                              <g id="Layer 2">
+                                <path id="Path" class="s0"
+                                      d="m669.9 333.6q-0.5-8.5-1.5-16.9c-0.7-6.3-1.6-12.4-2.7-18.5-22.9-131-125.1-240.5-263.6-266-17.5-3.3-35-5.1-52.2-5.5-1.6-0.1-3.2-0.1-4.7-0.1-1.6 0-3.2 0-4.8 0.1-2.1-0.1-4.3 0-6.5 0.1-168.7 5.8-304.8 139.8-313.6 307.6-0.2 2.7-0.3 5.4-0.3 8.2-3.4 149 96.7 283.7 243.2 322.8q8.1 2.6 16.4 4.8c5.6 1.6 11.4 2.8 17.2 3.6q0 0 0 0c0.1 0 0.2 0.1 0.3 0.1 15.7 2.3 31.7 3.5 48.1 3.5 55.6 0 108-13.9 153.8-38.5-31.2 13-65.3 20.2-101 20.2-38.4 0-74.8-8.3-108-23.3-88.2-39.8-152.7-126.9-165.3-231.1 0-0.2 0-0.4-0.1-0.6-2.6-19-3-38.8-1.3-59 0-0.5 0.1-1 0.1-1.6 0.8-7.7 1.8-15.5 3.2-23.3 12.2-68.7 48.7-125.6 96.8-160.3 23.7-17 52-6.7 63.1 22.3l44.4 115.6c13.1 34 48.5 40.7 72.6 13.7l96.5-108c16.6-18.7 40.1-22.2 57.1-7.8l0.2 0.3c72.5 63.2 111.3 160.6 93.5 260.7-1 5.9-2.5 11.7-4 17.6q-0.4 1.4-0.7 2.9c8.6-21.1 15.3-43.4 19.5-66.6 3-16.6 4.5-33.1 4.9-49.4 0-3 0-6.1 0-9.2q0-9.2-0.6-18.4z"/>
+                              </g>
+                            </g>
+                          </svg>
+                        </span>
+                        <span class="app-brand-text demo menu-text fw-bold ms-2"
+                              style="text-transform: none; font-size: 1.4rem; color: #f7f7f7;">eMajor League</span>
+                    </a>
+                </div>
+
+                <ul class="menu-inner py-1">
+                    <!-- Dashboards -->
+                    <li class="menu-item ">
+                        <a href="/" class="menu-link">
+                            <span class="material-symbols-outlined">home</span>
+                            <div data-i18n="Home">Home</div>
+                        </a>
+                    </li>
+                    <li class="menu-item" >
+                        <a href="/store/" class="menu-link">
+                            <span class="material-symbols-outlined">shopping_cart</span>
+                            <div data-i18n="Shop">Shop</div>
+                        </a>
+                    </li>
+                    <li class="menu-item" >
+                        <a href="/chat/" class="menu-link">
+                            <span class="material-symbols-outlined">forum</span>
+                            <div data-i18n="Sohbet">Sohbet</div>
+                        </a>
+                    </li>
+                    <li class="menu-item ">
+                        <a href="/v1/blog/" class="menu-link">
+                            <span class="material-symbols-outlined">newsmode</span>
+                            <div data-i18n="Blog">Blog</div>
+                        </a>
+                    </li>
+                    <li class="menu-item ">
+                        <a href="/rules/" class="menu-link">
+                            <span class="material-symbols-outlined">gavel</span>
+                            <div data-i18n="Rules">Rules</div>
+                        </a>
+                    </li>
+                    <li class="menu-item ">
+                        <a href="/builder/" class="menu-link">
+                            <span class="material-symbols-outlined">account_tree</span>
+                            <div data-i18n="Builder">Builder</div>
+                        </a>
+                    </li>
+                    <li class="menu-header small text-uppercase">
+                        <span class="menu-header-text">Leagues</span>
+                    </li>
+                    <li class="menu-item ">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <span class="material-symbols-outlined">event_list</span>
+                            <div data-i18n="League TR">League TR</div>
+                        </a>
+                        <ul class="menu-sub">
+                            
+                            
+                                <li class="menu-item">
+                                    <a href="/tournaments/league_page/39/" class="menu-link">
+                                        <div>FC 26 | 1. Lig</div>
+                                    </a>
+                                </li>
+                            
+                                <li class="menu-item">
+                                    <a href="/tournaments/league_page/38/" class="menu-link">
+                                        <div>FC 26 | 2. Lig</div>
+                                    </a>
+                                </li>
+                            
+                                <li class="menu-item">
+                                    <a href="/tournaments/league_page/37/" class="menu-link">
+                                        <div>FC 26 | 3. Lig</div>
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                    <li class="menu-item ">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <span class="material-symbols-outlined">event_list</span>
+                            <div data-i18n="League FRA">League FRA</div>
+                        </a>
+                        <ul class="menu-sub">
+                            
+                            
+                                <li class="menu-item">
+                                    <a href="/tournaments/league_page/32/" class="menu-link">
+                                        <div>FC 26 | Ligue 1</div>
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                    <li class="menu-item ">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <span class="material-symbols-outlined">event_list</span>
+                            <div data-i18n="League BGR">League BGR</div>
+                        </a>
+                        <ul class="menu-sub">
+                            
+                            
+                                <li class="menu-item">
+                                    <a href="/tournaments/league_page/28/" class="menu-link">
+                                        <div>FC 26 | Лига 1</div>
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                    <li class="menu-header small text-uppercase">
+                        <span class="menu-header-text">International</span>
+                    </li>
+                    <li class="menu-item ">
+                        <a href="/tournaments/cl/home/" class="menu-link">
+                            <span class="material-symbols-outlined">hotel_class</span>
+                            <div data-i18n="ChampionsLeague">Champions League</div>
+                        </a>
+                    </li>
+                    <li class="menu-item ">
+                        <a href="/tournaments/el/home/" class="menu-link">
+                            <span class="material-symbols-outlined">rewarded_ads</span>
+                            <div data-i18n="EuropaLeague">Europa League</div>
+                        </a>
+                    </li>
+                    <li class="menu-item ">
+                        <a href="#" class="menu-link menu-toggle">
+                            <span class="material-symbols-outlined">trophy</span>
+                            <div data-i18n="eMLCup">Major Cups</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="/tournaments/cup/groups/0/"
+                                   class="menu-link ">
+                                    <div data-i18n="eMLCupTeams">Türkiye Kupası</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="/tournaments/cup/groups/3/"
+                                   class="menu-link ">
+                                    <div data-i18n="eMLCupTeams">Divisions Cup</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item ">
+                        <a href="/nightcup/teams/"
+                           class="menu-link">
+                            <span class="material-symbols-outlined">dark_mode</span>
+                            <div data-i18n="eMLTourney">Night Tournament</div>
+                        </a>
+                    </li>
+                    <li class="menu-header small text-uppercase">
+                        <span class="menu-header-text">Nationals</span>
+                    </li>
+                    <li class="menu-item">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <span class="material-symbols-outlined">public</span>
+                            <div data-i18n="WorldCup">World Cup</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="#" class="menu-link">
+                                    <div data-i18n="WorldCupTeams">Teams</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="#" class="menu-link">
+                                    <div data-i18n="WorldCupGroups">Groups</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="#" class="menu-link">
+                                    <div data-i18n="WorldCupFinals">Finals</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <span class="material-symbols-outlined">globe_uk</span>
+                            <div data-i18n="EuroCup">Euro Cup</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="#" class="menu-link">
+                                    <div data-i18n="EuroCupTeams">Teams</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="#" class="menu-link">
+                                    <div data-i18n="EuroCupGroups">Groups</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="#" class="menu-link">
+                                    <div data-i18n="EuroCupFinals">Finals</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#" class="menu-link">
+                            <span class="material-symbols-outlined">flag</span>
+                            <div data-i18n="NationalLeague">National League</div>
+                        </a>
+                    </li>
+                    <li class="menu-header small text-uppercase">
+                        <span class="menu-header-text">Team &amp; Player</span>
+                    </li>
+                    <li class="menu-item ">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <span class="material-symbols-outlined">manage_search</span>
+                            <div data-i18n="TransferCenter">Transfer Center</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item ">
+                                <a href="/player_market/" class="menu-link">
+                                    <div data-i18n="PlayerSearch">Player Search</div>
+                                </a>
+                            </li>
+                            <li class="menu-item ">
+                                <a href="/team_market/" class="menu-link">
+                                    <div data-i18n="TeamSearch">Team Search</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item ">
+                        <a href="#" class="menu-link menu-toggle">
+                            <span class="material-symbols-outlined">groups</span>
+                            <div data-i18n="Teams">Teams</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item ">
+                                <a href="/teams/" class="menu-link">
+                                    <div data-i18n="Teams">Teams</div>
+                                </a>
+                            </li>
+                            <li class="menu-item ">
+                                <a href="/national_teams/" class="menu-link">
+                                    <div data-i18n="NationalTeams">National Teams</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item ">
+                        <a href='/players/player_list/' class="menu-link">
+                            <span class="material-symbols-outlined">group</span>
+                            <div data-i18n="Players">Players</div>
+                        </a>
+                    </li>
+                    <li class="menu-item  open " style="margin-bottom: 4rem;">
+                        <a href="#" class="menu-link menu-toggle">
+                            <span class="material-symbols-outlined">query_stats</span>
+                            <div data-i18n="Istatistics">Statistics</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="#" class="menu-link">
+                                    <div data-i18n="IstatisticsTeams">Teams</div>
+                                </a>
+                            </li>
+                            <li class="menu-item  active ">
+                                <a href="/statistics/" class="menu-link">
+                                    <div data-i18n="IstatisticsPlayers">Players</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            
+        </aside>
+        <!-- / Menu -->
+        <!-- Layout container -->
+        <div class="layout-page">
+            <!-- Navbar -->
+
+            <nav
+                    class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+                    id="layout-navbar">
+                <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+                    <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+                        <i class="bx bx-menu bx-sm"></i>
+                    </a>
+                </div>
+
+                <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+                    <!-- Search -->
+                    <form action="/search/" method="POST">
+                        <input type="hidden" name="csrfmiddlewaretoken" value="O5tVhUv2Tsg9yE5L7aLXwyLv4VB9iQz8o7NgFPz8bvwDtHJukKSQlN9lWAgxsm4n">
+                        <div class="navbar-nav align-items-center">
+                            <div class="nav-item d-flex align-items-center"
+                                 style="background-color: #07df56; border-radius: 8px; padding-left: 5px;">
+                                <i class="bx bx-search fs-4 lh-0"></i>
+                                <input type="text" class="form-control border-0 shadow-none ps-1 ps-sm-2 search-color"
+                                       style="background-color: #07df56; color: #f2f4f8;"
+                                       placeholder="Search..."
+                                       name="keyword"
+                                       aria-label="Search..."/>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- /Search -->
+
+                    <ul class="navbar-nav flex-row align-items-center ms-auto">
+                        <!-- Social Media -->
+                        <li class="nav-item" style="margin-left: 1rem;">
+                            <a class="nav-link dropdown-toggle hide-arrow" href="https://twitch.com/eMLTurkiye"
+                               target="_blank">
+                                <i class="bx bx-sm bxl-twitch"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link dropdown-toggle hide-arrow" href="https://instagram.com/eMajorLeague"
+                               target="_blank">
+                                <i class="bx bx-sm bxl-instagram"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link dropdown-toggle hide-arrow" href="https://twitter.com/eMajorLeague"
+                               target="_blank">
+                                <i class="bx bx-sm bxl-twitter"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link dropdown-toggle hide-arrow" href="https://youtube.com/@eMajorLeague"
+                               target="_blank">
+                                <i class="bx bx-sm bxl-youtube"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item" style="margin-right: 1rem;">
+                            <a class="nav-link dropdown-toggle hide-arrow" href="https://discord.gg/qKSqrf9bCr"
+                               target="_blank">
+                                <i class="bx bx-sm bxl-discord"></i>
+                            </a>
+                        </li>
+                        <!-- /Social Media -->
+                        |
+                        <!-- Language -->
+                        <li class="nav-item dropdown-language dropdown me-2 me-xl-0" style="margin-left: 1rem;">
+                            
+                            <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
+                               data-bs-toggle="dropdown"
+                               aria-expanded="true">
+                                
+                                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                         width="24" height="24" x="0"
+                                         y="0" viewBox="0 0 512 512"
+                                         style="enable-background:new 0 0 512 512; margin-right:0.5rem;"
+                                         xml:space="preserve" class=""><g><path d="M0 85.333h512V426.67H0z" style="" fill="#f0f0f0" data-original="#f0f0f0" class=""></path><path
+                                            d="M288 85.33h-64v138.666H0v64h224v138.666h64V287.996h224v-64H288z"
+                                            style="" fill="#d80027" data-original="#d80027" class=""></path><path
+                                            d="M393.785 315.358 512 381.034v-65.676zM311.652 315.358 512 426.662v-31.474l-143.693-79.83zM458.634 426.662l-146.982-81.664v81.664z"
+                                            style="" fill="#0052b4" data-original="#0052b4" class=""></path><path
+                                            d="M311.652 315.358 512 426.662v-31.474l-143.693-79.83z" style=""
+                                            fill="#f0f0f0" data-original="#f0f0f0" class=""></path><path
+                                            d="M311.652 315.358 512 426.662v-31.474l-143.693-79.83z" style=""
+                                            fill="#d80027" data-original="#d80027" class=""></path><path
+                                            d="M90.341 315.356 0 365.546v-50.19zM200.348 329.51v97.151H25.491z"
+                                            style="" fill="#0052b4" data-original="#0052b4" class=""></path><path
+                                            d="M143.693 315.358 0 395.188v31.474l200.348-111.304z" style=""
+                                            fill="#d80027" data-original="#d80027" class=""></path><path
+                                            d="M118.215 196.634 0 130.958v65.676zM200.348 196.634 0 85.33v31.474l143.693 79.83zM53.366 85.33l146.982 81.664V85.33z"
+                                            style="" fill="#0052b4" data-original="#0052b4" class=""></path><path
+                                            d="M200.348 196.634 0 85.33v31.474l143.693 79.83z" style=""
+                                            fill="#f0f0f0" data-original="#f0f0f0" class=""></path><path
+                                            d="M200.348 196.634 0 85.33v31.474l143.693 79.83z" style=""
+                                            fill="#d80027" data-original="#d80027" class=""></path><path
+                                            d="M421.659 196.636 512 146.446v50.19zM311.652 182.482V85.331h174.857z"
+                                            style="" fill="#0052b4" data-original="#0052b4" class=""></path><path
+                                            d="M368.307 196.634 512 116.804V85.33L311.652 196.634z" style=""
+                                            fill="#d80027" data-original="#d80027" class=""></path></g></svg>
+                                
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" data-bs-popper="static">
+                                
+                                <form action="/i18n/setlang/" method="post">
+                                    <input type="hidden" name="csrfmiddlewaretoken" value="O5tVhUv2Tsg9yE5L7aLXwyLv4VB9iQz8o7NgFPz8bvwDtHJukKSQlN9lWAgxsm4n">
+                                    <input name="next" type="hidden" value=""/>
+                                    <li>
+                                        <button type="submit"
+                                                class="dropdown-item  active "
+                                                name="language" value="en" data-language="en"
+                                                data-text-direction="ltr">
+                                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                                 width="24" height="24" x="0"
+                                                 y="0" viewBox="0 0 512 512"
+                                                 style="enable-background:new 0 0 512 512; margin-right:0.5rem;"
+                                                 xml:space="preserve" class=""><g><path d="M0 85.333h512V426.67H0z" style="" fill="#f0f0f0" data-original="#f0f0f0" class=""></path><path
+                                                    d="M288 85.33h-64v138.666H0v64h224v138.666h64V287.996h224v-64H288z"
+                                                    style="" fill="#d80027" data-original="#d80027" class=""></path><path
+                                                    d="M393.785 315.358 512 381.034v-65.676zM311.652 315.358 512 426.662v-31.474l-143.693-79.83zM458.634 426.662l-146.982-81.664v81.664z"
+                                                    style="" fill="#0052b4" data-original="#0052b4" class=""></path><path
+                                                    d="M311.652 315.358 512 426.662v-31.474l-143.693-79.83z" style=""
+                                                    fill="#f0f0f0" data-original="#f0f0f0" class=""></path><path
+                                                    d="M311.652 315.358 512 426.662v-31.474l-143.693-79.83z" style=""
+                                                    fill="#d80027" data-original="#d80027" class=""></path><path
+                                                    d="M90.341 315.356 0 365.546v-50.19zM200.348 329.51v97.151H25.491z"
+                                                    style="" fill="#0052b4" data-original="#0052b4" class=""></path><path
+                                                    d="M143.693 315.358 0 395.188v31.474l200.348-111.304z" style=""
+                                                    fill="#d80027" data-original="#d80027" class=""></path><path
+                                                    d="M118.215 196.634 0 130.958v65.676zM200.348 196.634 0 85.33v31.474l143.693 79.83zM53.366 85.33l146.982 81.664V85.33z"
+                                                    style="" fill="#0052b4" data-original="#0052b4" class=""></path><path
+                                                    d="M200.348 196.634 0 85.33v31.474l143.693 79.83z" style=""
+                                                    fill="#f0f0f0" data-original="#f0f0f0" class=""></path><path
+                                                    d="M200.348 196.634 0 85.33v31.474l143.693 79.83z" style=""
+                                                    fill="#d80027" data-original="#d80027" class=""></path><path
+                                                    d="M421.659 196.636 512 146.446v50.19zM311.652 182.482V85.331h174.857z"
+                                                    style="" fill="#0052b4" data-original="#0052b4" class=""></path><path
+                                                    d="M368.307 196.634 512 116.804V85.33L311.652 196.634z" style=""
+                                                    fill="#d80027" data-original="#d80027" class=""></path></g></svg>
+                                            <span class="align-middle">English</span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="submit"
+                                                class="dropdown-item "
+                                                name="language" value="tr" data-language="tr"
+                                                data-text-direction="ltr">
+                                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                                 width="24" height="24" x="0"
+                                                 y="0" viewBox="0 0 32 32"
+                                                 style="enable-background:new 0 0 512 512; margin-right:0.5rem;"
+                                                 xml:space="preserve" class=""><g><path fill="#e53030" d="M0 5.5h32v21H0z" opacity="1" data-original="#e53030" class=""></path><g
+                                                    fill="#fff"><path d="m15.399 13.699 2.925 4.614-4.909-1.94 5.063-1.428-3.31 4.256z" fill="#ffffff" opacity="1" data-original="#ffffff" class=""></path>
+                                                <path d="M14.113 19.154a4.279 4.279 0 0 1-4.174 2.332 5.435 5.435 0 0 1-5.315-5.552 5.437 5.437 0 0 1 5.315-5.553 4.756 4.756 0 0 1 4.672 3.147 3.7 3.7 0 0 0-3.542-2.039 4.427 4.427 0 0 0-4.326 4.522 4.424 4.424 0 0 0 4.326 4.521 3.2 3.2 0 0 0 3.044-1.378z"
+                                                      fill="#ffffff" opacity="1" data-original="#ffffff"
+                                                      class=""></path></g></g></svg>
+                                            <span class="align-middle">Turkish</span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="submit"
+                                                class="dropdown-item "
+                                                name="language" value="de" data-language="de"
+                                                data-text-direction="ltr">
+                                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                                 width="24" height="24" x="0"
+                                                 y="0" viewBox="0 0 512 512"
+                                                 style="enable-background:new 0 0 512 512; margin-right:0.5rem;"
+                                                 xml:space="preserve" class=""><g><path d="M0 85.331h512v341.337H0z" style="" fill="#d80027" data-original="#d80027"></path><path
+                                                    d="M0 85.331h512v113.775H0z" fill="#000000" opacity="1"
+                                                    data-original="#000000" class=""></path><path
+                                                    d="M0 312.882h512v113.775H0z" style="" fill="#ffda44"
+                                                    data-original="#ffda44" class=""></path></g></svg>
+                                            <span class="align-middle">German</span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="submit"
+                                                class="dropdown-item "
+                                                name="language" value="ar" data-language="ar"
+                                                data-text-direction="rtl">
+                                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                                 width="24" height="24" x="0"
+                                                 y="0" viewBox="0 0 32 32"
+                                                 style="enable-background:new 0 0 512 512; margin-right:0.5rem;"
+                                                 xml:space="preserve" class=""><g><path fill="#3d9635" d="M0 5.5h32v21H0z" opacity="1" data-original="#3d9635" class=""></path><g
+                                                    fill="#fff"><path d="M5.96 10.058c-.047.735-.107 2.035.449 2.167.671.069.3-1.281.543-1.526.046-.12.131-.12.138.031v1.15a.531.531 0 0 0 .383.552c.176-.012.293-.006.362.189.029.66.055 1.319.082 1.979 0 0 .411.138.43-1.112A12.988 12.988 0 0 1 8.3 12c0-.138.16-.151.274-.075.176.138.254.307.526.238.416-.132.663-.351.67-.716a3.456 3.456 0 0 0-.187-1.024c.019-.063-.082-.219-.061-.282.074.132.186.119.211 0a1.04 1.04 0 0 0-.356-.622c-.148-.145-.366-.113-.445.195a1.822 1.822 0 0 0 .343 1.1 1.216 1.216 0 0 1 .083.553.248.248 0 0 1-.339-.076s-.334-.282-.334-.339a1.5 1.5 0 0 0-.028-.886 1.194 1.194 0 0 0-.219-.477c-.082-.107-.194-.107-.247 0a1.845 1.845 0 0 0 .026 1.168c.074.252.193.409.139.409-.047.144-.14.106-.208-.057a4.536 4.536 0 0 1-.115-1.074c-.031-.283-.064-.886-.229-1.043-.1-.151-.251-.075-.3.069a6.3 6.3 0 0 0 .017.817 10.027 10.027 0 0 1 .205 1.322c.014.622-.319.27-.3-.044a3.169 3.169 0 0 0-.016-1.192c-.055-.164-.119-.2-.253-.17-.106-.012-.376.321-.451.873a4.989 4.989 0 0 0-.092.541c-.039.282-.205.483-.321-.044-.1-.384-.164-1.326-.333-1.106" fill="#ffffff" opacity="1" data-original="#ffffff" class=""></path>
+                                                <path d="M7.787 13.073c-.594.333-1.169.635-1.753.949a1.86 1.86 0 0 1 1.387-1.263c.36.013.268.157.366.314"
+                                                      fill="#ffffff" opacity="1" data-original="#ffffff"
+                                                      class=""></path>
+                                                <path d="M10.02 8.915a.514.514 0 0 0-.111.037.372.372 0 0 0-.235.459c.169 1.156.276 2.035.445 3.185.03.138-.074.314-.2.3-.222-.169-.277-.515-.654-.5a.784.784 0 0 0-.625.66 1.869 1.869 0 0 0 0 .753.508.508 0 0 0 .625.176c.165-.075.3-.263.362-.22.036.076-.006.679-.781 1.138-.479.238-.857.3-1.063-.139-.124-.276.01-1.319-.3-1.08-.923 2.676 2.159 3.053 2.5.113.023-.082.092-.163.14-.145.024.013.039.044.045.107-.072 2.657-2.383 2.833-2.775 2a2.779 2.779 0 0 1-.139-.9.507.507 0 0 0-.1-.3c-.093-.075-.219.132-.247.49a3.6 3.6 0 0 0-.028.641c.123 2.111 3.1 1.206 3.587-.534a6.682 6.682 0 0 0 .075-1.658h.01l.007-.006c.3.358.712.044.8-.076a.129.129 0 0 1 .207-.025.453.453 0 0 0 .718-.226 8.749 8.749 0 0 0 .1-1 .814.814 0 0 0-.322.151.1.1 0 0 0-.023.05c-.012.088-.024.189-.038.283a.233.233 0 0 1-.007.025.059.059 0 0 1-.029.025.1.1 0 0 1-.151-.075c-.07-.358-.363-.415-.542.151-.123.113-.338.131-.362-.026.031-.383-.107-.433-.38-.257-.086-.754-.176-1.47-.264-2.224.116 0 .217.094.323-.05a4.544 4.544 0 0 0-.485-1.275.262.262 0 0 0-.022-.025s0 0-.008-.007h-.008c-.006-.006-.014-.006-.016-.012s-.026-.007-.039 0m-.828 4.127a.156.156 0 0 1 .164.113.221.221 0 0 1-.034.2c-.024.044-.1.025-.16.025a.146.146 0 0 1-.146-.082c-.021-.069.038-.138.066-.194l.01-.019a.206.206 0 0 1 .1-.044"
+                                                      fill="#ffffff" opacity="1" data-original="#ffffff"
+                                                      class=""></path>
+                                                <path d="M12.1 8.852a.513.513 0 0 0-.208.063.5.5 0 0 0-.07.6c.117.056.234.194.155.263-.33.4-1.193 1.062-1.236 1.188v.012h.007a1.984 1.984 0 0 0 .644.006v-.006a9.545 9.545 0 0 0 1.064-1.206c-.043-.044-.088-.075-.133-.119a.086.086 0 0 1 0-.138.432.432 0 0 0 .037-.6.479.479 0 0 0-.264-.056m-.041.345c.055-.006.118.057.15.132s.016.164-.037.183-.127-.044-.163-.126-.015-.17.04-.182c0 0 .005-.007.01-.007M6.1 14.97a2.172 2.172 0 0 0-.18 1.73.345.345 0 0 0 .373.138c.205-.1.3-.571.247-.741-.069-.126-.123-.145-.193-.038-.144.327-.205.1-.218-.088a4.8 4.8 0 0 1 .039-.929c.037-.258 0-.183-.072-.076M20.154 14.028c-.315-.773-.757-1.533-.9-1.822s-1.2-2.016-1.355-2.217c-.345-.459.559.195-.115-.722-.254-.245-.269-.258-.486-.459-.1-.088-.368-.239-.412.013a1.617 1.617 0 0 0 .023.546 1.9 1.9 0 0 0 .271.465 35.153 35.153 0 0 1 2.942 5.314c.146-.075.115-.986.028-1.118"
+                                                      fill="#ffffff" opacity="1" data-original="#ffffff"
+                                                      class=""></path>
+                                                <path d="M18.76 16.6c-.064.075.153.42.436.414.471-.056.887-.358 1.27-1.143a2.189 2.189 0 0 0 .29-.88 21.57 21.57 0 0 0-.317-4.447.8.8 0 0 1 .011-.308c.031-.044.134 0 .189-.1.082-.1-.212-.861-.38-1.156-.06-.132-.081-.22-.18.012a1.864 1.864 0 0 0-.165.842c.225 1.747.293 3.285.443 5.032a.77.77 0 0 1-.11.515A4.412 4.412 0 0 1 18.76 16.6M24.162 19.157c-.341.22-.341.477-.065.483a1.621 1.621 0 0 0 1.415-.76 2.761 2.761 0 0 0 .228-.98 25.846 25.846 0 0 0-.256-4.8 2.419 2.419 0 0 1-.047-.452c.032-.082.184.012.236-.088.084-.088-.394-.785-.564-1.081-.058-.132-.078-.22-.178.019a1.5 1.5 0 0 0-.1.836 52.015 52.015 0 0 1 .473 5.427 1.72 1.72 0 0 1-.095.446 3.167 3.167 0 0 1-.461.609c-.156.126-.483.252-.589.346"
+                                                      fill="#ffffff" opacity="1" data-original="#ffffff"
+                                                      class=""></path>
+                                                <path d="M25.381 14.889c-.006-.446.011-.83-.006-1.162s-.149-1.577-.191-1.841-.094-.672-.158-.992a2.991 2.991 0 0 1-.059-.566c.025-.088.134.006.183-.1a3.792 3.792 0 0 0-.445-1.395c-.062-.132-.179-.088-.319.126-.135.138-.085.452-.035.754a31.041 31.041 0 0 1 .538 5.961c-.02.157.5-.484.492-.785M22.883 12.426c-.213-.006-.66-.465-.79-.735a.576.576 0 0 1 .025-.4c.08-.057.2-.126.291-.057 0 0 .094.145.076.163.116.063.167.025.179-.031.007-.088-.036-.145-.036-.245.049-.283.332-.32.44-.145a1.128 1.128 0 0 1 .119.49c0 .082-.116-.012-.181.007s-.081.1-.086.176a15.53 15.53 0 0 0-.037.772M18.953 15.385c.06-.61-.019-1.841-.025-2.2-.02-.841-.145-2.468-.2-2.739-.067-.515.186.057.149-.244a3.432 3.432 0 0 0-.629-1.326c-.095-.151-.091-.182-.241.038a1.761 1.761 0 0 0 .02 1.03 21.171 21.171 0 0 1 .4 2.99 29.981 29.981 0 0 1 .024 3.179c.161 0 .418-.3.507-.729"
+                                                      fill="#ffffff" opacity="1" data-original="#ffffff"
+                                                      class=""></path>
+                                                <path d="M26.107 14.411c-.373-.71-.942-1.539-1.092-1.821s-1.433-2.394-1.594-2.582c-.469-.547.215-.088-.088-.522a3.966 3.966 0 0 0-.554-.6c-.109-.075-.178-.232-.214.025a5.886 5.886 0 0 0-.017.691.93.93 0 0 0 .187.428 40.056 40.056 0 0 1 3.366 5.5c.143-.075.094-.986.006-1.112M21.562 21.139a.368.368 0 0 0-.106.653c-3.507 0-8.888-.062-10.037-.062-.648 0-2.689-.088-2.727-.088a1.981 1.981 0 0 0 1.9.879c1.558 0 8.772-.019 10.822-.019a.878.878 0 0 0 .13.842l.009.006a.011.011 0 0 0 .012.007h.006c.137.037.2-.076.244-.151a13.011 13.011 0 0 0 1.574-.006c.077.125.155.245.3.226.255-.063.456-.094.465-.679 0 0-.027-.992-.608-.929-.138.019-.522.062-.522.062-.447-.056-.777-.062-1.278-.088.047-.062.127-.332.028-.427a.164.164 0 0 0-.12-.037h-.01s-.009-.007-.011-.013v-.006a1.251 1.251 0 0 1-.056-.17h-.011m.238 1.42c.509.025.989.006 1.5.031a.228.228 0 0 1-.014.289c0 .007 0 .007-.007.007h-.013c-.166-.007-.261-.007-.427-.013 0-.013-.006-.019-.006-.031-.04-.132-.324-.12-.392-.013v.031a.044.044 0 0 0 0 .019 3.179 3.179 0 0 1-.653-.025c-.063-.088-.056-.251.021-.295M12.691 9.455c-.341 1.093.2 2.3.568 2.186.27.119.439-.458.55-1.087.077-.176.133-.2.172-.107-.011.842.053 1.031.245 1.282a.559.559 0 0 0 .808.012c.028-.025.334-.37.334-.37a.183.183 0 0 1 .278-.013c.1.1.086.283.3.4a.6.6 0 0 0 .665-.157c.123-.232.15-.314.206-.4.089-.132.236-.075.236-.031-.013.075-.1.144-.042.276.106.088.129.032.192.013.217-.12.38-.647.38-.647.007-.2-.089-.182-.156-.138s-.087.075-.171.132c-.1.012-.311.094-.41-.082-.106-.214-.106-.515-.187-.729 0-.012-.137-.333-.009-.358.063.013.2.057.224-.075.068-.126-.145-.49-.291-.666a.3.3 0 0 0-.472-.019.634.634 0 0 0-.126.39.668.668 0 0 0 .114.527 1.762 1.762 0 0 1 .262 1.074.389.389 0 0 1-.346.2c-.09-.025-.24-.069-.32-.722a5.141 5.141 0 0 0-.173-1.526c-.069-.2-.116-.4-.282-.051a.852.852 0 0 0-.1.748 2.467 2.467 0 0 1 .106 1.162 2.137 2.137 0 0 1-.2.32.307.307 0 0 1-.421.063.507.507 0 0 1-.251-.4 6.332 6.332 0 0 0-.034-1.282c-.1-.239-.272-.151-.343-.082a3.046 3.046 0 0 0-.63 1.451c-.1.352-.2.251-.274.107-.176-.182-.189-1.64-.4-1.4"
+                                                      fill="#ffffff" opacity="1" data-original="#ffffff"
+                                                      class=""></path>
+                                                <path d="M13.843 11.723c0 .006 0 .006-.01.006v.006c-.022.013-.051.057-.11.107a.6.6 0 0 0-.11.471c0 .032.187.6.345 1.011a3.527 3.527 0 0 1 .131 1.364 3.187 3.187 0 0 1-1.222 1.432.562.562 0 0 1-.51 0v-.006a.363.363 0 0 1-.138-.327 3.126 3.126 0 0 0 1.229-1.426 1.663 1.663 0 0 0 .033-1.03 1.088 1.088 0 0 0-.209-.471v-.007c.069-.037.246.113.276.019a1.552 1.552 0 0 0-.352-.728.278.278 0 0 0-.435-.032c-.146.094-.177.427-.109.723.08.213.3.251.45.691v.006a.945.945 0 0 1-.026.458 4.937 4.937 0 0 1-.921.968l-.006.006v.006h-.009v-.006a1.055 1.055 0 0 0 0-.144c0-.126.045-.428.042-.484v-.006c-.262.194-.352.785-.4.961a11.825 11.825 0 0 0-1.868 1.438c-.229.4 1.574-.465 1.782-.565l.008.006a1.644 1.644 0 0 0 .161.371.894.894 0 0 0 .972.358 3.244 3.244 0 0 0 1.408-1.319c.053-.088.139-.157.216-.088a2.159 2.159 0 0 0 1.993 1.174c.225-.307.119-.464.027-.521-.03-.025-.486-.226-.556-.427-.043-.182.063-.346.282-.471a8.831 8.831 0 0 0 1.839-.4 1.957 1.957 0 0 1 .2-.71.312.312 0 0 1 .1-.126v-.024l-.1-.069-2-.012a.252.252 0 0 1-.056-.032v-.037a.124.124 0 0 1 .063-.044c.481-.069 1.327-.227 1.381-1.15a.768.768 0 0 0-.7-.873.791.791 0 0 0-.613.911c-.017.119.039.364-.073.389-.736.082-1.538.6-1.567.968h-.01v.006h-.01l-.008-.006a.214.214 0 0 1-.1-.227 4.84 4.84 0 0 0-.506-1.922c-.1-.119-.148-.163-.179-.169h-.012m2.922.823a.217.217 0 0 1 .156.044.223.223 0 0 1 .123.188v.025s-.007.006-.012.013c-.039.044-.124.037-.21-.019a.244.244 0 0 1-.123-.182v-.007q0-.018.009-.018v-.013c0-.006 0-.006.01-.013a.066.066 0 0 1 .048-.018m-1.859 1.9h.023a5.211 5.211 0 0 0 .837.106c.232.019.346.22.13.308s-.42.145-.42.5a.531.531 0 0 1 0 .3.013.013 0 0 1-.009.012V15.682h-.005l-.01.006a.01.01 0 0 1-.009.007c-.053.006-.127-.057-.184-.082a1.3 1.3 0 0 1-.554-.923.225.225 0 0 1 .208-.245M8.48 9.468c.232.119.663.069.645-.346 0-.038-.007-.163-.01-.2-.045-.125-.176-.1-.2.032-.009.037.014.107-.018.132S8.8 9.1 8.8 8.984a.182.182 0 0 0-.038-.1.059.059 0 0 0-.051-.018c-.031.006-.031.012-.045.043a.29.29 0 0 0-.018.1c-.006.044-.021.056-.048.063s-.021.006-.047-.013S8.52 9.028 8.52 9a.51.51 0 0 0-.011-.1.1.1 0 0 0-.057-.038c-.127 0-.136.164-.127.226-.012.013-.016.3.155.384"
+                                                      fill="#ffffff" opacity="1" data-original="#ffffff"
+                                                      class=""></path>
+                                                <path d="M15.232 12.684c.231.119.779.05.647-.352 0-.038-.008-.163-.014-.2-.046-.125-.173-.094-.2.032-.007.044.018.113-.015.138s-.094 0-.092-.113a.163.163 0 0 0-.038-.094.06.06 0 0 0-.052-.019c-.03.006-.03.012-.048.044a.369.369 0 0 0-.017.094c0 .044-.018.057-.046.063s-.02.006-.046-.013-.034-.025-.034-.056a.272.272 0 0 0-.015-.1.087.087 0 0 0-.056-.037c-.125 0-.131.163-.127.226-.007.006-.013.295.157.383M19.171 11.352c.229.119.662.063.644-.352 0-.031-.007-.157-.01-.194-.049-.12-.179-.095-.2.037-.011.038.013.107-.021.126-.016.025-.092.012-.089-.107a.226.226 0 0 0-.038-.1.09.09 0 0 0-.05-.007c-.031 0-.031.007-.049.038a.386.386 0 0 0-.018.1c0 .037-.017.05-.046.056s-.024.006-.045-.013a.066.066 0 0 1-.033-.056.491.491 0 0 0-.016-.107.138.138 0 0 0-.056-.025c-.125 0-.135.163-.127.22-.008.012-.014.3.158.383M21.209 14.688a1.745 1.745 0 0 0-.134 1.532 1.178 1.178 0 0 0 .5.635.322.322 0 0 0 .519-.063c.235-.276.24-.974.349-1.112.08-.257.273-.214.368-.1a1.022 1.022 0 0 0 .336.326.521.521 0 0 0 .742.057.915.915 0 0 0 .395-.54 21.981 21.981 0 0 0 .029-3.179c-.011-.075-.227-1.307-.227-1.319s-.031-.628-.053-.773c-.006-.063-.019-.081.037-.075.059.063.065.069.1.081.059.013.112-.1.077-.207-.181-.377-.367-.76-.55-1.13-.042-.057-.1-.107-.172.006a.471.471 0 0 0-.134.339c.017.27.059.547.074.817.074.458.147.923.221 1.388.068.986.088 1.891.156 2.877-.011.414-.124.974-.237 1.024 0 0-.161.113-.273-.007a3.668 3.668 0 0 1-.4-.6c-.165-.169-.275-.125-.393 0a6.379 6.379 0 0 0-.687 1.458c-.059.1-.218.188-.394-.006a2.3 2.3 0 0 1-.244-1.426M19.274 8.927a.889.889 0 0 1 .3.792c-.041.283-.149.6-.228.553s.057-.283-.023-.541c-.049-.169-.328-.471-.3-.565a.19.19 0 0 1 .247-.239"
+                                                      fill="#ffffff" opacity="1" data-original="#ffffff"
+                                                      class=""></path>
+                                                <path d="M21.874 14.97a7.8 7.8 0 0 0-.044-1.243c-.012-.327-.331-3.022-.4-3.273-.078-.471.312-.063.267-.339-.134-.346-.469-.855-.573-1.156-.067-.132-.039-.245-.181-.032a2.959 2.959 0 0 0-.127 1.181 28.737 28.737 0 0 1 .632 5.679c.16 0 .344-.408.424-.817M24.429 12.159c.192.113.3.7.28.867-.036.308-.135.641-.208.6s.016-.459-.022-.584c-.045-.183-.3-.516-.273-.616-.051-.208.112-.295.223-.264M11.418 13.9c.178.076.285.509.264.635-.036.226-.131.465-.2.439s.015-.339-.022-.433c-.014-.232-.264-.352-.259-.452-.047-.182.1-.214.215-.189M6.608 8.783c.266.088.281.528.264.659-.036.233-.131.484-.2.453s0-.346-.038-.446c-.034-.149-.263-.39-.234-.465-.051-.157.1-.233.211-.2M11.851 10.856a.573.573 0 0 0-.155.71.289.289 0 0 0 .33.113c.2.031.318-.421.318-.421s.006-.126-.229.113c-.1.025-.113-.019-.139-.082a.636.636 0 0 1 .03-.352c.037-.113-.04-.163-.155-.081M13.378 8.613a.845.845 0 0 0-.31.591c-.009.15-.034.15.056.251.067.107.132.094.262.013a.311.311 0 0 0 .126-.2c.032-.176-.163.081-.19-.114s.082-.251.2-.433c0-.119 0-.2-.146-.107M14.611 8.858a4.019 4.019 0 0 0-.089.685c-.037.17.16.245.247.025a2.226 2.226 0 0 0 .14-.747c-.04-.258-.2-.245-.3.037M22.371 13.3c.028-.025 1.093-.879 1.093-.879.109-.044.086.44.037.433a4.244 4.244 0 0 1-1.13.886c-.052.038-.105-.333 0-.44M23.344 13.293c.19.107.264.722.243.892.007.327-.181.59-.254.553s.009-.408-.028-.54a2.9 2.9 0 0 1-.177-.622c-.053-.208.1-.321.216-.283M17 15.956a1.643 1.643 0 0 1 .3-.295.172.172 0 0 1 .207.044c.018.113-.066.226-.039.383.021.063.039.139.142.107a.661.661 0 0 1 .5-.163c.133 0 .134.251.054.251a3.5 3.5 0 0 0-.677.27.142.142 0 0 1-.2-.031.239.239 0 0 1-.019-.22c.01-.126-.036-.2-.131-.188-.072.05-.133.075-.168-.013-.013-.069-.018-.107.028-.145M24.467 16.289a.167.167 0 0 1 0 .233c-.076.082-.127.119-.2.2-.033.069-.055.169.051.2.2.063.66-.27.66-.283a.165.165 0 0 0 .044-.182c-.044-.056-.14-.025-.206-.025-.033 0-.135-.025-.086-.119a1.01 1.01 0 0 0 .084-.183c.029-.081.005-.131-.111-.176a.878.878 0 0 0-.285 0c-.068.019-.092.057-.1.145 0 .138.081.132.16.188"
+                                                      fill="#ffffff" opacity="1" data-original="#ffffff"
+                                                      class=""></path></g></g></svg>
+                                            <span class="align-middle">Arabic</span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="submit"
+                                                class="dropdown-item "
+                                                name="language" value="bg" data-language="bg"
+                                                data-text-direction="ltr">
+                                            <img style="aspect-ratio: 4/3; max-width: 24px; object-fit: contain; margin-right: 8px;" src="
+                                                    /static/flags/4x3/bg.svg"/>
+                                            <span class="align-middle">Bulgarian</span>
+                                        </button>
+                                    </li>
+                                </form>
+                            </ul>
+                        </li>
+                        <!-- /Language -->
+
+                        
+
+                        <!-- User -->
+                        
+
+                            <!-- Login / Register -->
+                            <li class="nav-item dropdown ms-2 me-2 me-xl-0">
+                                <a class="nav-link dropdown-toggle hide-arrow btn btn-dark rounded-pill ps-3 pe-3"
+                                   data-bs-toggle="dropdown" aria-expanded="true">
+                                    <span class="bx bx-key bx-sm me-md-1"></span>
+                                    <span class="d-none d-md-block">Login / Register</span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" data-bs-popper="static">
+                                    <li>
+                                        <a class="dropdown-item" href="/authentication/login/">
+                                            <i class="bx bx-log-in bx-sm me-2"></i>
+                                            <span class="align-middle">Login</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="/authentication/register/">
+                                            <i class="bx bx-pen bx-sm me-2"></i>
+                                            <span class="align-middle">Register</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        
+
+                        <!--/ User -->
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- / Navbar -->
+
+            <!-- Content wrapper -->
+            <div class="content-wrapper">
+                <!-- Content -->
+                <div class="container-xxl flex-grow-1 container-p-y pb-0">
+                    
+
+    <div class="card">
+        <div class="card-header border-bottom">
+            <h5 class="card-title">Player Statistics</h5>
+        </div>
+        <div class="card-datatable table-responsive">
+            <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
+
+                    <div class="row mx-2">
+                        <div class="col-md-8">
+                            <div class="d-flex justify-content-between align-items-center row py-3 gap-3 gap-md-0">
+                                <div class="col-md-4 user_platform">
+                                    <select id="season" name="season" class="form-select text-capitalize">
+                                        <option value=""> Select Season</option>
+                                        <option  value="2025">2025
+                                        </option>
+                                        <option  value="2024">2024
+                                        </option>
+                                        <option  value="2023">2023
+                                        </option>
+                                        <option  value="2022">2022
+                                        </option>
+                                        <option  value="2021">2021
+                                        </option>
+                                        <option  value="2020">2020
+                                        </option>
+                                    </select></div>
+                                <div class="col-md-4 user_status">
+                                    <select id="tournament" name="tournament" class="form-select text-capitalize">
+                                        <option value=""> Select Tournament</option>
+                                        
+                                            <option value="1"
+                                                    >DEMO SEZON</option>
+                                        
+                                            <option value="2"
+                                                    >DEMO Türkiye Kupası</option>
+                                        
+                                            <option value="3"
+                                                    >Xbox Ligi 1. Sezon</option>
+                                        
+                                            <option value="9"
+                                                    >1. Sezon Türkiye Kupası</option>
+                                        
+                                            <option value="10"
+                                                    >1. Sezon Süper Kupa</option>
+                                        
+                                            <option value="11"
+                                                    >Xbox Ligi 2. Sezon</option>
+                                        
+                                            <option value="18"
+                                                    >2. Sezon Türkiye Kupası</option>
+                                        
+                                            <option value="23"
+                                                    >Xbox Ligi 3. Sezon (Yaz Ligi)</option>
+                                        
+                                            <option value="24"
+                                                    >2022 Yaz Ligi Play-Off</option>
+                                        
+                                            <option value="25"
+                                                    >Xbox Ligi 4. Sezon</option>
+                                        
+                                            <option value="26"
+                                                    >4. Sezon Türkiye Kupası</option>
+                                        
+                                            <option value="27"
+                                                    >PC Ligi 1. Sezon</option>
+                                        
+                                            <option value="28"
+                                                    >Xbox Ligi 5. Sezon</option>
+                                        
+                                            <option value="29"
+                                                    >PC 1. Türkiye Kupası</option>
+                                        
+                                            <option value="30"
+                                                    >PC Ligi 2. Sezon</option>
+                                        
+                                            <option value="32"
+                                                    >CrossPlay 1. Ligi</option>
+                                        
+                                            <option value="33"
+                                                    >CrossPlay 3. Ligi</option>
+                                        
+                                            <option value="34"
+                                                    >CrossPlay 2. Ligi</option>
+                                        
+                                            <option value="35"
+                                                    >Türkiye Kupası</option>
+                                        
+                                            <option value="36"
+                                                    >League One</option>
+                                        
+                                            <option value="37"
+                                                    >League Two</option>
+                                        
+                                            <option value="38"
+                                                    >League Three</option>
+                                        
+                                            <option value="41"
+                                                    >2. Sezon Türkiye Kupası</option>
+                                        
+                                            <option value="42"
+                                                    >Summer 1. League</option>
+                                        
+                                            <option value="43"
+                                                    >Summer 2. League</option>
+                                        
+                                            <option value="44"
+                                                    >Summer 3. League</option>
+                                        
+                                            <option value="47"
+                                                    >Summer League Türkiye Kupası</option>
+                                        
+                                            <option value="48"
+                                                    >CL League 2024 - 3</option>
+                                        
+                                            <option value="49"
+                                                    >Europe League 2025 - 25</option>
+                                        
+                                            <option value="50"
+                                                    >Europe League 2023 - 3</option>
+                                        
+                                            <option value="51"
+                                                    >League One</option>
+                                        
+                                            <option value="52"
+                                                    >League Two</option>
+                                        
+                                            <option value="53"
+                                                    >FC 25 | 2. Sezon | 3. Lig</option>
+                                        
+                                            <option value="54"
+                                                    >FC 25 | 3. Sezon Türkiye Kupası</option>
+                                        
+                                            <option value="55"
+                                                    >FC 25 | 2. Sezon | 1. Lig</option>
+                                        
+                                            <option value="56"
+                                                    >FC 25 | 2. Sezon | 2. Lig</option>
+                                        
+                                            <option value="57"
+                                                    >FC 25 | 1. Sezon Süper Kupa</option>
+                                        
+                                            <option value="58"
+                                                    >FC 25 | 2. Sezon Türkiye Kupası</option>
+                                        
+                                            <option value="59"
+                                                    >FC 26 | Лига 1</option>
+                                        
+                                            <option value="62"
+                                                    >Divisions Cup</option>
+                                        
+                                            <option value="63"
+                                                    >Summer | 3. Lig</option>
+                                        
+                                            <option value="64"
+                                                    >Summer | 2. Lig</option>
+                                        
+                                            <option value="65"
+                                                    >Summer | 1. Lig</option>
+                                        
+                                            <option value="66"
+                                                    >FC 25 | 2. Sezon Süper Kupa</option>
+                                        
+                                            <option value="67"
+                                                    >FC 26 | Ligue 1</option>
+                                        
+                                            <option value="68"
+                                                    >FC 26 | 1. Lig</option>
+                                        
+                                            <option value="69"
+                                                    >FC 26 | 1. Sezon | 2. Lig</option>
+                                        
+                                            <option value="70"
+                                                    >FC 26 | 1. Sezon | 3. Lig</option>
+                                        
+                                            <option value="71"
+                                                    >FC 26 | 2. Sezon 1. Lig</option>
+                                        
+                                            <option value="72"
+                                                    >Türkiye Kupası</option>
+                                        
+                                            <option value="73"
+                                                    >FC 26 | 3. Lig</option>
+                                        
+                                            <option value="74"
+                                                    >FC 26 | 2. Lig</option>
+                                        
+                                            <option value="75"
+                                                    >FC 26 | 1. Lig</option>
+                                        
+                                            <option value="76"
+                                                    >FC 26 | 4. Lig</option>
+                                        
+                                            <option value="77"
+                                                    >FC 26 | 2. Sezon Slot Turnuvası</option>
+                                        
+                                    </select>
+                                </div>
+                                <div class="col-md-4 user_position">
+                                    <select id="position" name="position" class="form-select text-capitalize">
+                                        <option value=""> Position</option>
+                                        
+                                            <option value="1"
+                                                    >Goalkeeper</option>
+                                        
+                                            <option value="2"
+                                                    >Right Back</option>
+                                        
+                                            <option value="3"
+                                                    >Left Back</option>
+                                        
+                                            <option value="4"
+                                                    >Center Back</option>
+                                        
+                                            <option value="5"
+                                                    >Defensive Midfielder</option>
+                                        
+                                            <option value="6"
+                                                    >Central Midfielder</option>
+                                        
+                                            <option value="7"
+                                                    >Attacking Midfielder</option>
+                                        
+                                            <option value="8"
+                                                    >Left Winger</option>
+                                        
+                                            <option value="9"
+                                                    >Right Winger</option>
+                                        
+                                            <option value="10"
+                                                    >Forward</option>
+                                        
+                                            <option value="11"
+                                                    >Sol Orta Saha</option>
+                                        
+                                            <option value="12"
+                                                    >Sağ Orta Saha</option>
+                                        
+                                            <option value="13"
+                                                    >Sol Kanat Beki</option>
+                                        
+                                            <option value="14"
+                                                    >Sağ Kanat Beki</option>
+                                        
+                                            <option value="15"
+                                                    >Santrfor</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-4">
+                            <div class="dt-action-buttons text-xl-end text-lg-start text-md-end text-start d-flex align-items-center justify-content-end flex-md-row flex-column mb-3 mb-md-0">
+                                <div id="DataTables_Table_0_filter" class="dataTables_filter">
+                                    <label>
+                                        <button type="submit" id="filterButton"
+                                                class="w-full btn btn-primary form-control">Filtrele
+                                        </button>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+            <div style="padding: 20px; !important;">
+                <table class="stripe"
+                       id="myTable" aria-describedby="DataTables_Table_0_info">
+                    <thead>
+                    <tr>
+                        <th tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                            style="width: 15%;">Player
+                        </th>
+                        <th tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                            style="width: 5%;">Matches
+                        </th>
+                        <th tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                            style="width: 5%;">MVP
+                        </th>
+                        <th tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                            style="width: 5%;">Goal
+                        </th>
+                        <th tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                            style="width: 5%;">Assist
+                        </th>
+                        <th tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                            style="width: 5%;">Pas
+                        </th>
+                        <th tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                            style="width: 5%;">K. Top
+                        </th>
+                        <th tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                            style="width: 5%;">Kurt.
+                        </th>
+                        <th tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                            style="width: 5%;">CS (Defans)
+                        </th>
+                        <th tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                            style="width: 5%;">CS (KL)
+                        </th>
+                        <th tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                            style="width: 5%;">Reyting
+                        </th>
+                        <th tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                            style="width: 5%;">Bonservis
+                        </th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+                </div>
+                <!-- / Content -->
+
+                <!-- Footer -->
+                <footer class="content-footer footer bg-footer-theme py-4 mt-4 container-xxl"
+                        style="background-color: #494a5c !important; border-top-right-radius: 10px; border-top-left-radius: 10px; max-width: 1388px;">
+                    <div class="container-xxl d-flex justify-content-between py-2 flex-md-row flex-column">
+                        <div class="d-flex flex-grow-1 flex-column me-2 py-3">
+                            <h1 style="color: white;">eMajor League</h1>
+                            <div class="d-flex justify-content-start py-2 flex-md-row">
+                                <a href="https://twitch.com/eMLTurkiye" style="background-color: #6441A5;"
+                                   class="btn btn-icon btn-sm me-2" target="_blank"><i class="bx bxl-twitch"
+                                                                                       style="color: white"></i></a>
+                                <a
+                                        href="https://instagram.com/eMajorLeague"
+                                        style=" border: none; background: #FFFFFF; background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );"
+                                        class="btn btn-icon btn-sm me-2"
+                                        target="_blank"
+                                >
+                                    <i class="bx bxl-instagram" style="color: white"></i>
+                                </a>
+                                <a href="https://twitter.com/eMajorLeague" style="background-color: #1ea1f1;"
+                                   class="btn btn-icon btn-sm me-2" target="_blank"><i class="bx bxl-twitter"
+                                                                                       style="color: white"></i></a>
+                                <a href="https://youtube.com/@eMajorLeague" style="background-color: #FF0000;"
+                                   class="btn btn-icon btn-sm me-2" target="_blank"><i class="bx bxl-youtube"
+                                                                                       style="color: white"></i></a>
+                                <a href="https://discord.gg/qKSqrf9bCr" style="background-color: #7289da;"
+                                   class="btn btn-icon btn-sm me-2" target="_blank"><i class="bx bxl-discord"
+                                                                                       style="color: white"></i></a>
+                            </div>
+                            <span>
+                                2021 - <script> document.write(new Date().getFullYear()); </script> © eMajor League
+                            </span>
+                        </div>
+                        <div class="d-flex flex-grow-1 flex-column me-2 py-3">
+                            <h5 style="color: white;">Company</h5>
+                            <a href="/admins/" class="footer-link py-1">About</a>
+                            <a href="/premium/" class="footer-link py-1">Premium <span
+                                    style="background-color: #11e95c; color: #000000; padding: 2px 6px; border-radius: 4px;">Discounted</span></a>
+                            <a href="#" class="footer-link py-1">Wiki</a>
+                            <a href="/mediakit/" class="footer-link py-1">Media Kit</a>
+                            <a href="/privacy_policy/" class="footer-link py-1">Privacy Policy</a>
+                            <a href="/terms_of_service/" class="footer-link py-1">Terms of Service</a>
+                        </div>
+                        <div class="d-flex flex-grow-1 flex-column me-2 py-3">
+                            <h5 style="color: white;" class="py-1">Events</h5>
+                            <a href="#" class="footer-link py-1">Champions</a>
+                            <a href="#" class="footer-link py-1">Ballon d'Or</a>
+                            <a href="#" class="footer-link py-1">Lan 11's</a>
+                            <a href="#" class="footer-link py-1">Bootcamp</a>
+                            <a href="#" class="footer-link py-1">Major Prime</a>
+                            <a href="#" class="footer-link py-1">Hello World</a>
+                        </div>
+                        <div class="d-flex flex-grow-1 flex-column me-2 py-3">
+                            <h5 style="color: white;" class="py-1">Ultimate Team</h5>
+                            <a href="/customary/teams/" class="footer-link py-1">Traditional Tournament</a>
+                            <a href="/ticket/" class="footer-link py-1">Destek</a>
+                            <a href="#" class="footer-link py-1">Pro Player Cup</a>
+                            <a href="#" class="footer-link py-1">Duel</a>
+                            <a href="#" class="footer-link py-1">Friendly Match</a>
+                            <a href="#" class="footer-link py-1">SBC Solutions</a>
+                        </div>
+                    </div>
+                    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169905114-3"></script>
+                    <script async
+                            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8056182936817225"
+                            crossorigin="anonymous"></script>
+                    <script>
+                        window.dataLayer = window.dataLayer || [];
+
+                        function gtag() {
+                            dataLayer.push(arguments);
+                        }
+
+                        gtag('js', new Date());
+
+                        gtag('config', 'UA-169905114-3');
+                    </script>
+                </footer>
+                <!-- / Footer -->
+
+                <div class="content-backdrop fade"></div>
+            </div>
+            <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+    </div>
+
+    <!-- Overlay -->
+    <div class="layout-overlay layout-menu-toggle"></div>
+</div>
+<!-- / Layout wrapper -->
+
+<!-- Core JS -->
+<!-- build:js assets/vendor/js/core.js -->
+
+<script src="/static/v2/assets/vendor/libs/jquery/jquery.js"></script>
+<script src="/static/v2/assets/vendor/libs/popper/popper.js"></script>
+<script src="/static/v2/assets/vendor/js/bootstrap.js"></script>
+<script src="/static/v2/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+<script src="/static/v2/assets/vendor/js/menu.js"></script>
+<script src="/static/v2/assets/vendor/libs/typeahead-js/typeahead.js"></script>
+<script src="/static/v2/assets/vendor/libs/i18n/i18n.js"></script>
+<script src="/static/v2/assets/vendor/libs/hammer/hammer.js"></script>
+
+<!-- endbuild -->
+
+<!-- Vendors JS -->
+<script src="/static/v2/assets/vendor/libs/apex-charts/apexcharts.js"></script>
+<script src="/static/v2/assets/vendor/libs/swiper/swiper.js"></script>
+<script src="/static/v2/assets/vendor/libs/bootstrap-maxlength/bootstrap-maxlength.js"></script>
+
+<!-- Main JS -->
+<script src="/static/v2/assets/js/main.js"></script>
+
+<!-- Page JS -->
+<script src="/static/v2/assets/js/dashboards-analytics.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- Cropper JS -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/cropperjs/0.8.1/cropper.min.js'></script>
+
+<script src="/static/v2/assets/vendor/libs/bootstrap-select/bootstrap-select.js"></script>
+
+
+    <script src="/static/v2/assets/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            let table = $('#myTable').DataTable({
+                serverSide: true,
+                processing: true,
+                paging: true,
+                searching: false,
+                info: true,
+                lengthChange: false,
+                pageLength: 20,
+                order: [[1, 'desc']],
+                ajax: {
+                    "url": "/player_statistics_data/",
+                    "type": "GET",
+                    data: function (d) {
+                        d.season = $('#season').val();
+                        d.position = $('#position').val();
+                        d.tournament = $('#tournament').val();
+                    }
+                },
+                autoWidth: false,
+                columns: [
+                    {
+                        data: "pp",
+                        name: 'player__origin_id',
+                        render: function (data, type, row) {
+                            let nameNew = data.split("$$**$$");
+
+                            if (nameNew[0] === '/media/') {
+                                nameNew[0] = "/static/assets/images/icons/tmp/comment_user.png"
+                            }
+                            let originId = nameNew[1]
+                            let playerId = nameNew[2]
+
+                            let url = "/players/profile/0011/".replace("0011", playerId)
+                            return `<img loading="lazy" src="${nameNew[0]}" alt="Profile Photo" class="avatar rounded-circle"> <a href="${url}">${originId}</a>`;
+                        },
+                    },
+                    {data: "total_matches", name: 'total_matches'},
+                    {data: "total_mvp", name: 'total_mvp'},
+                    {data: "total_goals", name: 'total_goals'},
+                    {data: "total_assists", name: 'total_assists'},
+                    {data: "total_passes", name: 'total_passes'},
+                    {data: "total_tackles", name: 'total_tackles'},
+                    {data: "total_saves", name: 'total_saves'},
+                    {data: "total_defence_clean_sheet", name: 'total_defence_clean_sheet'},
+                    {data: "total_keeper_clean_sheet", name: 'total_keeper_clean_sheet'},
+                    {data: "avg_rating", name: 'avg_rating'},
+                    {
+                        data: "player__transfer_fee",
+                        name: 'player__transfer_fee',
+                        render: function (data, type, row) {
+                            return `${data} USD`
+                        }
+                    }
+                ],
+            });
+
+            $('#filterButton').on('click', function() {
+                table.ajax.reload();
+            });
+        });
+    </script>
+
+
+</body>
+</html>
