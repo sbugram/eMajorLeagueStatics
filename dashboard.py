@@ -31,22 +31,22 @@ def load_team_player_cache():
 st.sidebar.header("Filtreleme Seçenekleri")
 st.sidebar.markdown("eMajorLeague arama motoru parametreleri:")
 
-filters = load_filters()
-sel_season = ""
-sel_tournament = ""
-sel_position = ""
+with st.sidebar.container():
+    filters = load_filters()
+    is_live = any(len(v) > 0 for v in filters.values())
+    if not is_live:
+        st.sidebar.caption("⚠️ Filtreler önbellekten yüklendi veya boş. Site geçici olarak ulaşılamaz olabilir.")
 
-if filters:
     season_opts = {"Tümü": ""}
     season_opts.update(filters.get('season', {}))
     s_label = st.sidebar.selectbox("Sezon Seçiniz", options=list(season_opts.keys()))
     sel_season = season_opts[s_label]
-    
+
     tourn_opts = {"Tümü": ""}
     tourn_opts.update(filters.get('tournament', {}))
     t_label = st.sidebar.selectbox("Turnuva Seçiniz", options=list(tourn_opts.keys()))
     sel_tournament = tourn_opts[t_label]
-    
+
     pos_opts = {"Tümü": ""}
     pos_opts.update(filters.get('position', {}))
     p_label = st.sidebar.selectbox("Pozisyon Seçiniz", options=list(pos_opts.keys()))

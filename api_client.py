@@ -51,11 +51,27 @@ class EMajorLeagueAPI:
             return all_records
 
     def get_filter_options(self):
-        """ Scrapes the HTML page for select dropdown options """
+        """ Scrapes the HTML page for select dropdown options.
+        Caches successful results to filter_cache.json so filters
+        remain available even when the site is temporarily unreachable.
+        """
+        import os, json
         from bs4 import BeautifulSoup
+
+        FILTER_CACHE = "filter_cache.json"
+
+        # Hardcoded fallback used only if both live site and cache fail
+        FALLBACK_FILTERS = {
+            "season":     {},   # Will be empty — user sees only 'Tümü'
+            "tournament": {},
+            "position":   {}
+        }
+
         try:
-            r = requests.get("https://www.emajorleague.com/statistics/", headers=self.headers)
-            soup = BeautifulSoup(r.text, 'lxml') # Needs bs4 and lxml
+            r = requests.get("https://www.emajorleague.com/statistics/",
+                             headers=self.headers, timeout=15)
+            r.raise_for_status()
+            soup = BeautifulSoup(r.text, 'lxml')
             filters = {}
             for select_id in ['season', 'tournament', 'position']:
                 select = soup.find('select', {'id': select_id})
@@ -64,10 +80,31 @@ class EMajorLeagueAPI:
                     for opt in select.find_all('option'):
                         val = opt.get('value', '').strip()
                         text = opt.text.strip()
-                        if val:  # ignore empty 'Select' options
+                        if val:
                             options[text] = val
                     filters[select_id] = options
-            return filters
+
+            if filters:
+                try:
+                    with open(FILTER_CACHE, 'w', encoding='utf-8') as f:
+                        json.dump(filters, f, ensure_ascii=False, indent=2)
+                    logger.info("Filter options cached to filter_cache.json")
+                except Exception:
+                    pass
+                return filters
+
         except Exception as e:
-            logger.error(f"Failed to scrape filters from HTML: {e}")
-            return {}
+            logger.warning(f"Could not fetch live filters: {e}")
+
+        # Try loading from cache
+        if os.path.exists(FILTER_CACHE):
+            try:
+                with open(FILTER_CACHE, 'r', encoding='utf-8') as f:
+                    cached = json.load(f)
+                logger.info("Filter options loaded from cache (site unreachable).")
+                return cached
+            except Exception as e:
+                logger.warning(f"Could not read filter cache: {e}")
+
+        logger.warning("Returning empty filter fallback.")
+        return FALLBACK_FILTERS
