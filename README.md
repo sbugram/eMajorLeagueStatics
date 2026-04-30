@@ -1,3 +1,12 @@
+---
+title: eMajorLeague Analiz
+emoji: ⚽
+colorFrom: blue
+colorTo: green
+sdk: streamlit
+app_file: dashboard.py
+pinned: false
+---
 # eMajorLeague İstatistik ve Analiz Aracı
 
 Bu proje, **eMajorLeague** web sitesi üzerinden oyuncu istatistiklerini dinamik ve yapılandırılmış bir biçimde çeken, derleyen ve bu veriler üzerinden ileri düzey istatistiksel ve taktiksel analizler üretebilen bir Python komut satırı (CLI) uygulamasıdır.
